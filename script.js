@@ -34,16 +34,19 @@ newsForm.addEventListener('submit', function(event) {
 
             // Check if there are any articles returned
             if (data.articles && data.articles.length > 0) {
-                // Create a loop here through each article and show its title and description
+                // Create a loop through each article and show its title and description
                 data.articles.forEach(article => {
-                    const articleElement = document.createElement('div');
-                    articleElement.innerHTML = `
-                        <h3>${article.title}</h3>
-                        <p>${article.description || 'No description'}</p>
-                        <a href="${article.url}" target="_blank">Read more</a>
-                        <hr>`;
+                    // Check if the article contains "[Removed]" or has incomplete data
+                    if (!article.title.includes('[Removed]') && !article.description.includes('[Removed]')) {
+                        const articleElement = document.createElement('div');
+                        articleElement.innerHTML = `
+                            <h3>${article.title}</h3>
+                            <p>${article.description || 'No description'}</p>
+                            <a href="${article.url}" target="_blank">Read more</a>
+                            <hr>`;
                         
-                    preview.appendChild(articleElement);
+                        preview.appendChild(articleElement);
+                    }
                 });
             } else {
                 // No articles are found? Show a message
