@@ -7,22 +7,18 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-    <div class="loader"></div>
+    <div class="loader">Loading...</div>
     <div id="content">
-        <h1>Search News</h1>
-        <p>Enter a keyword to search for news articles</p>
-
-        
+        <h1>Latest News</h1>
         <form id="newsForm">
-            <input type="text" id="searchNews" placeholder="Search Article">
-            <button type="submit" id="btnSearch">Search News</button>
+            <input type="text" id="searchNews" placeholder="Search for news..." />
+            <button type="submit" id="btnSearch">Search</button>
         </form>
 
-        <div id="previewContainer">
-            <span id="preview"></span>
-        </div>
+        <div id="previewContainer"></div>
+        <button id="loadMore" style="display: none;">Load More</button>
     </div>
 
-    <script src="/script.js"></script> 
+    <script src="/script.js"></script>
 </body>
 </html>
